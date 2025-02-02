@@ -7,7 +7,7 @@ namespace Time
 {
     public class Time
     {
-        private double[] curTime;
+        private int[] curTime;
         private int basePower;
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace Time
         public Time(int minGranularity, int maxGranularity)
         {
             int granularity = maxGranularity - minGranularity;
-            this.curTime = new double[granularity];
+            this.curTime = new int[granularity];
             this.basePower = minGranularity;
         }
 
@@ -57,6 +57,17 @@ namespace Time
                 index -= 1;
             }
             return false;
+        }
+
+        public int current(int powerGranularity)
+        {
+            return this.curTime[powerGranularity];
+        }
+
+        public int increment(int quantity, int power)
+        {
+            this.curTime[power] += power;
+            return this.curTime[power];
         }
 
         public static bool operator ==(Time l, Time r)
@@ -100,10 +111,17 @@ namespace Time
             return l.curTime.SequenceEqual(r.curTime);
         }
 
+        public override bool Equals(object o)
+        {
+            return o.GetHashCode() == GetHashCode();
+        }
+
         public override int GetHashCode()
         {
             return this.basePower.GetHashCode() ^ this.curTime[0].GetHashCode();
         }
+        
 
+        
     }
 }
