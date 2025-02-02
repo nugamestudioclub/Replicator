@@ -64,7 +64,7 @@ namespace Time
             bool total = true;
             for (int i = 0; i < l.curTime.Length; i++)
             {
-                total = l.curTime[i] == r.curTime[i];
+                total = ((float)l.curTime[i]) == ((float)r.curTime[i]);
                 
             }
             return total;
@@ -93,7 +93,16 @@ namespace Time
 
         public static bool Equals(Time l, Time r)
         {
-            return l.GetHashCode() == r.GetHashCode();
+            if (ReferenceEquals(l, r))
+                return true;
+            if (l is null || r is null)
+                return false;
+            return l.curTime.SequenceEqual(r.curTime);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.basePower.GetHashCode() ^ this.curTime[0].GetHashCode();
         }
 
     }
