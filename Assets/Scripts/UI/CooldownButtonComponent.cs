@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,12 +16,19 @@ namespace UI
         [SerializeField]
         private Image cover;
         private Button btn;
+
+        private TMP_Text text;
+        private Color textIColor;
         
 
         private void Awake()
         {
             btn = GetComponent<Button>();
-
+            text =GetComponent<TMP_Text>();
+            if (text != null)
+            {
+                textIColor = text.color;
+            }
         }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,6 +49,10 @@ namespace UI
             {
                 cover.gameObject.SetActive(true);
                 cover.fillAmount = coverPercent;
+            }
+            if(text != null)
+            {
+                text.color = Interactable? textIColor : textIColor/5f;
             }
         }
     }

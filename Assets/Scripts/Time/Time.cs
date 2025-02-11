@@ -75,6 +75,19 @@ namespace Time
             return this.time[power - baseExponent];
         }
 
+        public int GetHighestFilledPrefix()
+        {
+            int last = baseExponent;
+            for(int i = baseExponent; i<maxExponent; i++)
+            {
+                if (this.time[i] == 0)
+                {
+                    return last;
+                }
+                last = i;
+            }
+            return last;
+        }
         private void SetPrefix(int power, int value)
         {
             this.time[power - baseExponent] = value;
