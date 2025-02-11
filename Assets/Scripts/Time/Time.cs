@@ -14,7 +14,7 @@ namespace Time
         private static Time deltaTime;
         public static Time DeltaTime { get
             {
-                if (deltaTime == null)
+                if (deltaTime is null)
                 {
                     deltaTime = new Time(UnityEngine.Time.deltaTime);
                 }
@@ -23,7 +23,11 @@ namespace Time
             } 
         }
 
-        public Time() { }
+        public Time(int baseExponent = -3, int maxExponent = 32) {
+            this.time = new int[maxExponent - baseExponent];
+            this.baseExponent = baseExponent;
+            this.maxExponent = maxExponent;
+        }
 
         public Time(float startingValue, int baseExponent = -3, int maxExponent = 32)
         {
@@ -35,14 +39,21 @@ namespace Time
 
         public void SetNumber(float number)
         {
-            for (int i = baseExponent; i < maxExponent; i++)
+            // Clear the time array
+            Array.Clear(this.time, 0, this.time.Length);
+
+            // Start from the highest power and work down to the smallest
+            for (int i = maxExponent - 1; i >= baseExponent; i--)
             {
-                float sub = number % Mathf.Pow(10, i);
-                sub *= Mathf.Pow(10, -(i + 1));
-                int num = Mathf.RoundToInt(sub);
-                this.time[i - baseExponent] = num;
+                // Get the coefficient for this power of 10
+                int coefficient = Mathf.FloorToInt(number / Mathf.Pow(10, i));
+
+                // Store the coefficient and remove it from number
+                this.time[i - baseExponent] = coefficient;
+                number -= coefficient * Mathf.Pow(10, i);
             }
         }
+
 
         public float GetNumberRaw()
         {
@@ -152,26 +163,11 @@ namespace Time
 
         public static Time operator /(Time time1, Time time2)
         {
-            if (time2.GetPrefix(time2.baseExponent) == 0)
-                throw new DivideByZeroException("Cannot divide by zero");
-
-            int _base = time1.baseExponent - time2.baseExponent;
-            int _max = time1.maxExponent - time2.maxExponent;
-            Time ret = new Time(0, baseExponent: _base, maxExponent: _max);
-
-            for (int i = time1.maxExponent - 1; i >= time1.baseExponent; i--)
-            {
-                int dividend = time1.GetPrefix(i);
-                int divisor = time2.GetPrefix(time2.baseExponent);
-                if (divisor != 0)
-                {
-                    int quotient = dividend / divisor;
-                    ret.SetPrefix(i - time2.baseExponent, quotient);
-                }
-            }
-
+            Time ret = new Time();
+            ret.SetNumber((float)time1.GetNumberRaw() / (float)time2.GetNumberRaw());
             return ret;
         }
+
 
         public static bool operator <(Time time1, Time time2)
         {
@@ -194,8 +190,14 @@ namespace Time
             }
             return true;
         }
+        public static bool operator ==(Time t1, object o2)
+        {
+            return t1.Equals(o2);
+        }
 
         public static bool operator !=(Time time1, Time time2) => !(time1 == time2);
+
+        public static bool operator !=(Time t1, object o2) => !(t1 == o2);
 
         public override bool Equals(object obj)
         {

@@ -301,52 +301,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &424203652
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 424203654}
-  - component: {fileID: 424203653}
-  m_Layer: 0
-  m_Name: TimeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &424203653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424203652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 736af6f744c0bcc4ea99f833b584d5dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingIncrement: 1
-  incrementGranularity: 0
---- !u!4 &424203654
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 424203652}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 500.42496, y: 846.44464, z: -6.8680573}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +533,7 @@ GameObject:
   - component: {fileID: 1171527218}
   - component: {fileID: 1171527220}
   - component: {fileID: 1171527219}
+  - component: {fileID: 1171527221}
   m_Layer: 5
   m_Name: RobotCount
   m_TagString: Untagged
@@ -704,11 +659,128 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171527217}
   m_CullTransparentMesh: 1
+--- !u!114 &1171527221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171527217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d7dfde3fc0ceb4abb6abf36759a403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1213666562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213666565}
+  - component: {fileID: 1213666564}
+  - component: {fileID: 1213666563}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1213666563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213666562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736af6f744c0bcc4ea99f833b584d5dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingIncrement: 1
+  incrementExponent: 0
+--- !u!114 &1213666564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213666562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5583dac87eb22e4e96dccafa074f44d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1213666565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213666562}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 617.4761, y: 684.0476, z: -9.363353}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1226386815 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7226693999397748346, guid: 293e595b209679d439d5177f2b2e0a13, type: 3}
   m_PrefabInstance: {fileID: 454272633302956293}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1830583937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1635832739097393503, guid: 293e595b209679d439d5177f2b2e0a13, type: 3}
+  m_PrefabInstance: {fileID: 454272633302956293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1830583938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830583937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e6a9b3145acf024a8cbc6b479e1ac1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: _RobCreate0
+  cooldownButton: {fileID: 1830583939}
+  duration: 5
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1213666564}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: AddBot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1830583939 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1447206062396607803, guid: 293e595b209679d439d5177f2b2e0a13, type: 3}
+  m_PrefabInstance: {fileID: 454272633302956293}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830583937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edba37de8110f284fa9dd3629ba0cd2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &454272633302956293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -808,7 +880,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1635832739097393503, guid: 293e595b209679d439d5177f2b2e0a13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1830583938}
   m_SourcePrefab: {fileID: 100100000, guid: 293e595b209679d439d5177f2b2e0a13, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -818,4 +893,4 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 285281153}
   - {fileID: 243798451}
-  - {fileID: 424203654}
+  - {fileID: 1213666565}
