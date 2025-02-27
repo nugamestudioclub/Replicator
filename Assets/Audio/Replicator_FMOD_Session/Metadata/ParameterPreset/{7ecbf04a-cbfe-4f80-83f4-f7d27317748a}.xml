@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{7ecbf04a-cbfe-4f80-83f4-f7d27317748a}">
+		<property name="name">
+			<value>steamPowerGet</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7f591b2b-6e97-4189-9fab-14217ae13ab1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{f3334866-2ac7-476e-9f77-d1e39f1700f9}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{f3334866-2ac7-476e-9f77-d1e39f1700f9}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
