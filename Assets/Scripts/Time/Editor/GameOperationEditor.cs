@@ -85,7 +85,7 @@ namespace Time
             EditorGUILayout.PropertyField(library);
 
             VariableLibrary lib = library.objectReferenceValue as VariableLibrary;
-            if (lib != null && lib.Mappings != null)
+            if (lib != null && lib.GetMappings() != null)
             {
                 UpdateVariableNames(lib);
                 operationsList.DoLayoutList();
@@ -97,9 +97,9 @@ namespace Time
         private void UpdateVariableNames(VariableLibrary library)
         {
             variableNameToIndexMap = new Dictionary<string, int>();
-            variableNames = new string[library.Mappings.Count];
+            variableNames = new string[library.GetMappings().Length];
             int i = 0;
-            foreach (var kvp in library.Mappings)
+            foreach (var kvp in library.GetMappings())
             {
                 variableNames[i] = kvp.Key;
                 variableNameToIndexMap[kvp.Key] = i;
