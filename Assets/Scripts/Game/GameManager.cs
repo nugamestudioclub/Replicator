@@ -1,20 +1,23 @@
+using Time;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    /// <summary>
-    /// Gets the Robot Count in the current instance. (Do not run in awake).
-    /// </summary>
-    public static int RobotCount { get { return instance.robotCount; } }
-
 
     private static GameManager instance;
-    private int robotCount = 0;
+    [SerializeField]
+    private VariableLibrary library;
+
+    private static PublicVariableLibrary plibrary;
+    public static PublicVariableLibrary Library { get { return plibrary; } }    
 
 
     private void Awake()
     {
         instance = this;
+
+        plibrary = new PublicVariableLibrary(library);
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -29,8 +32,37 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void AddBot()
+    public static float GetVariable(string name)
     {
-        this.robotCount++;
+        return Library.Mappings[name];
+    }
+    public static void SetVariable(string name, float value) {
+        Library.Mappings[name] = value;
+    }
+
+    public static void HandleOperation(GameOperation operation)
+    {
+        foreach(var op in operation.Operations)
+        {
+            string input = op.inputVar;
+            string output = op.outputVar;
+            switch (op.op)
+            {
+                case ValOperation.Operation.Add:
+                    
+                    SetVariable(output, GetVariable(output)+GetVariable(input));
+                    break;
+                case ValOperation.Operation.Subtract:
+                    SetVariable(output, GetVariable(output) - GetVariable(input));
+                    break;
+                case ValOperation.Operation.Multiply:
+                    SetVariable(output, GetVariable(output) * GetVariable(input));
+                    break;
+                case ValOperation.Operation.Divide:
+                    SetVariable(output, (float)GetVariable(output) / GetVariable(input));
+                    break;
+
+            }
+        }
     }
 }

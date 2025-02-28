@@ -23,3 +23,5 @@ MonoBehaviour:
     initialValue: 1
   - variableName: BotMatterCost
     initialValue: 1
+  - variableName: BotUpgradeIncrement
+    initialValue: 1

@@ -15,7 +15,12 @@ public class VariableManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        mapping = new Dictionary<string, float>(variables.Mappings);
+        Time.VariableLibrary.VarMapping[] vars = variables.GetMappings();
+        mapping = new Dictionary<string, float>();
+        foreach(var var in vars)
+        {
+            mapping[var.variableName] = var.initialValue;
+        }
     }
 
     // Update is called once per frame

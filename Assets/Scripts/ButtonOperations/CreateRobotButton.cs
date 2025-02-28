@@ -19,6 +19,8 @@ public class CreateRobotButton : MonoBehaviour
     private Operation op;
     [SerializeField]
     private UnityEvent _onComplete;
+    [SerializeField]
+    private GameOperation operation;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,6 +40,7 @@ public class CreateRobotButton : MonoBehaviour
     private void OnComplete()
     {
         op = null;
+        GameManager.HandleOperation(operation);
     }
 
     // Update is called once per frame

@@ -101,8 +101,8 @@ namespace Time
             int i = 0;
             foreach (var kvp in library.GetMappings())
             {
-                variableNames[i] = kvp.Key;
-                variableNameToIndexMap[kvp.Key] = i;
+                variableNames[i] = kvp.variableName;
+                variableNameToIndexMap[kvp.variableName] = i;
                 i++;
             }
         }
