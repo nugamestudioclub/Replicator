@@ -11,5 +11,13 @@ namespace Time
         private VariableLibrary library;
         [SerializeField]
         private ValOperation[] operations;
+
+        public ValOperation[] Operations
+        {
+            get
+            {
+                return operations;
+            }
+        }
     }
 }

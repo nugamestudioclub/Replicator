@@ -22,4 +22,21 @@ namespace Time
             public float initialValue;
         }
     }
+
+    public class PublicVariableLibrary
+    {
+
+        private Dictionary<string, float> mappings;
+        public Dictionary<string,float> Mappings { get { return mappings; } }   
+        public PublicVariableLibrary(VariableLibrary library)
+        {
+            mappings = new Dictionary<string, float>();
+            foreach(var mapping in library.GetMappings())
+            {
+                mappings[mapping.variableName] = mapping.initialValue + 0;
+            }
+        }
+
+      
+    }
 }

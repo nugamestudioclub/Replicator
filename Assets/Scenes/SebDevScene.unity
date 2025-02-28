@@ -821,6 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13d7dfde3fc0ceb4abb6abf36759a403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  variableCounter: Bots
 --- !u!1 &1213666562
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5583dac87eb22e4e96dccafa074f44d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  library: {fileID: 11400000, guid: 71ab7708cb8a96d4cb8a1d39d53d407e, type: 2}
 --- !u!4 &1213666565
 Transform:
   m_ObjectHideFlags: 0
@@ -921,19 +923,8 @@ MonoBehaviour:
   duration: 5
   _onComplete:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1213666564}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: AddBot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  operation: {fileID: 11400000, guid: 294fa1eba1ea4d24180aceb207f9be58, type: 2}
 --- !u!114 &1830583939 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1447206062396607803, guid: 293e595b209679d439d5177f2b2e0a13, type: 3}
