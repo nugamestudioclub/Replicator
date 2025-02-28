@@ -20,7 +20,7 @@ MonoBehaviour:
   - variableName: Matter
     initialValue: 100
   - variableName: Bot Increment Magnitude
-    initialValue: 1
+    initialValue: 2
   - variableName: BotMatterCost
     initialValue: 1
   - variableName: BotUpgradeIncrement
