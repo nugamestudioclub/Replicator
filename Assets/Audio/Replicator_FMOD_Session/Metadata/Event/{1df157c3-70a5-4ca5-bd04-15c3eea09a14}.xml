@@ -1163,7 +1163,7 @@
 			<value>17.454545454545453</value>
 		</property>
 		<property name="length">
-			<value>21.652776946370288</value>
+			<value>26.18181818181818</value>
 		</property>
 		<property name="spawnDelayType">
 			<value>1</value>
@@ -2021,9 +2021,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{50e0adf7-484d-4eb8-81a0-519d4dd09844}" />
 	<object class="MultiSound" id="{74461e1f-f9ca-4d61-9843-1d9914746e90}">
-		<property name="playlistMode">
-			<value>1</value>
-		</property>
 		<relationship name="sounds">
 			<destination>{e3025d15-d70b-4b32-a56b-fe6d83db8c73}</destination>
 			<destination>{3db102a6-c48e-4caa-9a65-658a3663ae83}</destination>
@@ -2041,10 +2038,6 @@
 			<destination>{ccd31e79-539b-4a9f-9115-24f08e24a295}</destination>
 			<destination>{44d32efe-dfe5-44b2-a544-24fc95aa5156}</destination>
 			<destination>{268a6454-0cc6-4581-80d8-eb9fab2b0b9d}</destination>
-		</relationship>
-		<relationship name="playPercentages">
-			<destination>{38ccc1bf-1ff1-491c-9fbf-8693777f3da2}</destination>
-			<destination>{a6b27b45-5ad3-4025-9713-e7c2b29769da}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{179627e9-df2b-4a08-a95f-b4cf6ce6a523}">
@@ -4612,22 +4605,6 @@
 	<object class="SingleSound" id="{268a6454-0cc6-4581-80d8-eb9fab2b0b9d}">
 		<relationship name="audioFile">
 			<destination>{f77a8d7d-ccc2-4ccd-9681-d97fead88b1b}</destination>
-		</relationship>
-	</object>
-	<object class="PlayPercentage" id="{38ccc1bf-1ff1-491c-9fbf-8693777f3da2}">
-		<property name="percentage">
-			<value>1</value>
-		</property>
-		<relationship name="sound">
-			<destination>{ea6de439-7999-44f8-9550-227ee9c0ac87}</destination>
-		</relationship>
-	</object>
-	<object class="PlayPercentage" id="{a6b27b45-5ad3-4025-9713-e7c2b29769da}">
-		<property name="percentage">
-			<value>21</value>
-		</property>
-		<relationship name="sound">
-			<destination>{268a6454-0cc6-4581-80d8-eb9fab2b0b9d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{29bbaba3-9d61-49a2-aa10-2e97a4f72d2a}" />
