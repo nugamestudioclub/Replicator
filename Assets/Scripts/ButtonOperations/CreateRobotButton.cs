@@ -3,6 +3,7 @@ using Time;
 using UnityEngine.UI;
 using UI;
 using UnityEngine.Events;
+using Unity.Collections;
 
 /// <summary>
 /// Button UI that on press runs an operation, then on complete runs the operation.
@@ -24,6 +25,10 @@ public class CreateRobotButton : MonoBehaviour
     private UnityEvent _onComplete;
     [SerializeField]
     private GameOperation operation;
+    [SerializeField]
+    private string matterCostVariable;
+    [SerializeField]
+    private string matterVariable;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -49,7 +54,7 @@ public class CreateRobotButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cooldownButton.Interactable = op is null;
+        cooldownButton.Interactable = op is null && GameManager.GetVariable(matterCostVariable) <= GameManager.GetVariable(matterVariable);
         if (op != null)
         {
             cooldownButton.coverPercent = 1 - op.GetProgress(Time.TimeManager.Current);

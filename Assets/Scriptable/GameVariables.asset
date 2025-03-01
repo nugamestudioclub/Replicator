@@ -16,17 +16,17 @@ MonoBehaviour:
   - groupName: Global Variables
     variables:
     - variableName: Bots
-      initialValue: 0
+      initialValue: 1
       editorDescription: 
     - variableName: Matter
-      initialValue: 100
+      initialValue: 0
       editorDescription: 
     - variableName: Energy
-      initialValue: 100
+      initialValue: 0
       editorDescription: 
   - groupName: Costs
     variables:
-    - variableName: Bot Matter Cost
+    - variableName: BotMatterCost
       initialValue: 1
       editorDescription: 
   - groupName: Numbers
@@ -45,7 +45,7 @@ MonoBehaviour:
   - groupName: Allocation
     variables:
     - variableName: Unallocated
-      initialValue: 0
+      initialValue: 1
       editorDescription: 
     - variableName: CollectionAllocation
       initialValue: 0
@@ -59,3 +59,16 @@ MonoBehaviour:
     - variableName: BotGroupSize
       initialValue: 1
       editorDescription: 
+  - groupName: Dependecy Varaibles
+    variables:
+    - variableName: BotsPerTick
+      initialValue: 0
+      editorDescription: 
+    - variableName: EnergyPerTick
+      initialValue: 0
+      editorDescription: 
+    - variableName: MatterPerTick
+      initialValue: 0
+      editorDescription: 
+  - groupName: New Group
+    variables: []

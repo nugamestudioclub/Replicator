@@ -20,3 +20,6 @@ MonoBehaviour:
   - op: 0
     inputVar: BotGroupSize
     outputVar: Unallocated
+  - op: 1
+    inputVar: One
+    outputVar: MatterPerTick
