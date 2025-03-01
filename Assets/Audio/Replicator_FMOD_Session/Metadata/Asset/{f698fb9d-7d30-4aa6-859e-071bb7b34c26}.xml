@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{f698fb9d-7d30-4aa6-859e-071bb7b34c26}">
+		<property name="color">
+			<value>Red Light 2</value>
+		</property>
+		<property name="assetPath">
+			<value>Tutorial/botChord/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{206ad3d0-ebe4-42df-931e-005624af3366}</destination>
+		</relationship>
+	</object>
+</objects>

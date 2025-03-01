@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{a6d6db02-52d6-4919-90e6-ef0e0c55754a}">
+		<property name="color">
+			<value>Red</value>
+		</property>
+		<property name="assetPath">
+			<value>Steam Power/matterNote/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{206ad3d0-ebe4-42df-931e-005624af3366}</destination>
+		</relationship>
+	</object>
+</objects>

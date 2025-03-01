@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{98bbb2ed-7d83-4541-b270-e81ec0a2165f}">
+		<property name="color">
+			<value>Red Light 1</value>
+		</property>
+		<property name="assetPath">
+			<value>Steam Power/bassNote/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{206ad3d0-ebe4-42df-931e-005624af3366}</destination>
+		</relationship>
+	</object>
+</objects>
