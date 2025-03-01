@@ -23,6 +23,8 @@ namespace Time
         {
             public string variableName;
             public float initialValue;
+            [SerializeField]
+            private string editorDescription;
         }
     }
 
