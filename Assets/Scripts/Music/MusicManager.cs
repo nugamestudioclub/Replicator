@@ -16,6 +16,9 @@ public class MusicManager : MonoBehaviour
     private float matterNumber;
     private float botNumber;
 
+    public float matterLayerTriggerNum;
+    public float botLayerTriggerNum;
+
     private void Awake()
     {
 
@@ -27,13 +30,13 @@ public class MusicManager : MonoBehaviour
         matterNumber = GameManager.GetVariable("Matter");
         botNumber = GameManager.GetVariable("Bots");
         
-        if (!matterLayerIsTriggered && matterNumber>5)
+        if (!matterLayerIsTriggered && matterNumber>matterLayerTriggerNum)
         {
             matterLayerIsTriggered = true;
             FMODUnity.RuntimeManager.PlayOneShot("event:/Set Parameter Events/Set_MatterGet_True");
         }
 
-        if (!botLayerIsTriggered && botNumber>1)
+        if (!botLayerIsTriggered && botNumber>botLayerTriggerNum)
         {
             botLayerIsTriggered = true;
             FMODUnity.RuntimeManager.PlayOneShot("event:/Set Parameter Events/Set_FirstBotCreated_True");
