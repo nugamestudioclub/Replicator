@@ -12,37 +12,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb7a1d5a35189c4cb682df021ee896e, type: 3}
   m_Name: GameVariables
   m_EditorClassIdentifier: 
-  mappings:
-  - variableName: Bots
-    initialValue: 3
-    editorDescription: the number of bots in the game
-  - variableName: Energy
-    initialValue: 100
-    editorDescription: the amount of energy we have
-  - variableName: Matter
-    initialValue: 100
-    editorDescription: the amount of matter we have
-  - variableName: BotIncrementMagnitude
-    initialValue: 2
-    editorDescription: On click create how many bots made.
-  - variableName: BotMatterCost
-    initialValue: 1
-    editorDescription: How much matter a bot consumes to be created.
-  - variableName: BotUpgradeIncrement
-    initialValue: 1
-    editorDescription: How many more bots per click on upgrade.s
-  - variableName: Unallocated
-    initialValue: 3
-    editorDescription: How many unallocated bots we have.
-  - variableName: CollectionAllocation
-    initialValue: 0
-    editorDescription: How many bots are allocated to collection.
-  - variableName: ChargeAllocation
-    initialValue: 0
-    editorDescription: How many bots are allocated to charge.
-  - variableName: ConstructAllocation
-    initialValue: 0
-    editorDescription: How many bots are allocated to construction.
-  - variableName: One
-    initialValue: 1
-    editorDescription: One value
+  groups:
+  - groupName: Global Variables
+    variables:
+    - variableName: Bots
+      initialValue: 1
+      editorDescription: 
+    - variableName: Matter
+      initialValue: 0
+      editorDescription: 
+    - variableName: Energy
+      initialValue: 0
+      editorDescription: 
+  - groupName: Costs
+    variables:
+    - variableName: BotMatterCost
+      initialValue: 1
+      editorDescription: 
+  - groupName: Numbers
+    variables:
+    - variableName: One
+      initialValue: 1
+      editorDescription: 
+  - groupName: Increments
+    variables:
+    - variableName: BotIncrementMagnitude
+      initialValue: 1
+      editorDescription: 
+    - variableName: BotUpgradeIncrement
+      initialValue: 1
+      editorDescription: 
+  - groupName: Allocation
+    variables:
+    - variableName: Unallocated
+      initialValue: 1
+      editorDescription: 
+    - variableName: CollectionAllocation
+      initialValue: 0
+      editorDescription: 
+    - variableName: ChargeAllocation
+      initialValue: 0
+      editorDescription: 
+    - variableName: ConstructAllocation
+      initialValue: 0
+      editorDescription: 
+    - variableName: BotGroupSize
+      initialValue: 1
+      editorDescription: 
+  - groupName: Dependecy Varaibles
+    variables:
+    - variableName: BotsPerTick
+      initialValue: 0
+      editorDescription: 
+    - variableName: EnergyPerTick
+      initialValue: 0
+      editorDescription: 
+    - variableName: MatterPerTick
+      initialValue: 0
+      editorDescription: 
+  - groupName: New Group
+    variables: []

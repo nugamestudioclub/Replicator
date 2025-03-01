@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: 
   variableCounter: ChargeAllocation
+  useSymbols: 1
 --- !u!114 &38868994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,6 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: '<b>Matter</b>: '
   variableCounter: Matter
+  useSymbols: 0
 --- !u!1 &301061123
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: 
   variableCounter: CollectionAllocation
+  useSymbols: 1
 --- !u!1 &417405406
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,6 +986,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unallocatedVariableName: Unallocated
+  botGroupVariableName: BotGroupSize
   allocationOperation: {fileID: 11400000, guid: f8b7ffbfcc3b9d7468cf8ae66661e247, type: 2}
   isAllocating: 0
 --- !u!1 &420323451
@@ -1038,6 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unallocatedVariableName: Unallocated
+  botGroupVariableName: BotGroupSize
   allocationOperation: {fileID: 11400000, guid: 44867e952fcd72a4fb9b8aea8d6cfadb, type: 2}
   isAllocating: 1
 --- !u!114 &420323454
@@ -1558,6 +1563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unallocatedVariableName: Unallocated
+  botGroupVariableName: BotGroupSize
   allocationOperation: {fileID: 11400000, guid: 5901b7577ef04a045b796d29687674de, type: 2}
   isAllocating: 1
 --- !u!1 &527935614
@@ -1613,6 +1619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unallocatedVariableName: Unallocated
+  botGroupVariableName: BotGroupSize
   allocationOperation: {fileID: 11400000, guid: 002215f30c854ad42ba7b0b06b012175, type: 2}
   isAllocating: 0
 --- !u!114 &527935617
@@ -2650,6 +2657,7 @@ GameObject:
   - component: {fileID: 1240643166}
   - component: {fileID: 1240643168}
   - component: {fileID: 1240643167}
+  - component: {fileID: 1240643169}
   m_Layer: 5
   m_Name: EnergyChangePerTick
   m_TagString: Untagged
@@ -2775,6 +2783,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240643165}
   m_CullTransparentMesh: 1
+--- !u!114 &1240643169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240643165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc1d70d1aa30534380dc34142c96d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefix: 'Energy/Tick:'
+  variableCounter: EnergyPerTick
+  useSymbols: 1
 --- !u!1 &1242483718
 GameObject:
   m_ObjectHideFlags: 0
@@ -3216,6 +3239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unallocatedVariableName: Unallocated
+  botGroupVariableName: BotGroupSize
   allocationOperation: {fileID: 11400000, guid: 3939df9d6ad203d479793b8ffbfe081e, type: 2}
   isAllocating: 0
 --- !u!114 &1354591660
@@ -3508,6 +3532,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   operation: {fileID: 11400000, guid: 294fa1eba1ea4d24180aceb207f9be58, type: 2}
+  matterCostVariable: BotMatterCost
+  matterVariable: Matter
 --- !u!1 &1461364816
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,6 +3901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: '<b>Energy</b>:'
   variableCounter: Energy
+  useSymbols: 0
 --- !u!1 &1646873167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3927,6 +3954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: 
   variableCounter: ConstructAllocation
+  useSymbols: 1
 --- !u!114 &1646873170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4177,6 +4205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: 'Unallocated: '
   variableCounter: Unallocated
+  useSymbols: 1
 --- !u!1 &1704941779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4189,6 +4218,8 @@ GameObject:
   - component: {fileID: 1704941780}
   - component: {fileID: 1704941782}
   - component: {fileID: 1704941781}
+  - component: {fileID: 1704941784}
+  - component: {fileID: 1704941785}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4251,6 +4282,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1704941784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704941779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5afedb45292feea458cab6e7edf0fc48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickRateVariable: EnergyPerTick
+  energyVariable: Energy
+--- !u!114 &1704941785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704941779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb3a1b3225bde684f9d14fce9d642f68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickRateVariable: MatterPerTick
+  matterVariable: Matter
 --- !u!1 &1733705357
 GameObject:
   m_ObjectHideFlags: 0
@@ -4537,6 +4596,7 @@ GameObject:
   - component: {fileID: 1871043031}
   - component: {fileID: 1871043033}
   - component: {fileID: 1871043032}
+  - component: {fileID: 1871043034}
   m_Layer: 5
   m_Name: MatterChangePerTick
   m_TagString: Untagged
@@ -4662,6 +4722,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871043030}
   m_CullTransparentMesh: 1
+--- !u!114 &1871043034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871043030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fc1d70d1aa30534380dc34142c96d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefix: 'Matter/Tick:'
+  variableCounter: MatterPerTick
+  useSymbols: 1
 --- !u!1 &2033554236
 GameObject:
   m_ObjectHideFlags: 0
@@ -4715,6 +4790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unallocatedVariableName: Unallocated
+  botGroupVariableName: BotGroupSize
   allocationOperation: {fileID: 11400000, guid: 541e206b808fb9442a540fa1ed663c8c, type: 2}
   isAllocating: 1
 --- !u!114 &2033554239
