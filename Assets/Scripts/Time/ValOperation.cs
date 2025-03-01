@@ -2,10 +2,13 @@ using UnityEngine;
 
 namespace Time
 {
+    /// <summary>
+    /// A single Value Operation 
+    /// </summary>
     [System.Serializable]
     public class ValOperation
     {
-        public enum Operation { Add, Subtract, Multiply, Divide};
+        public enum Operation { Add, Subtract, Multiply, Divide, Set };
 
         public Operation op;
         public string inputVar;

@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Time
 {
+    /// <summary>
+    /// A list of mathemetical value operations for one in game operation. (ie. Robot Creation)
+    /// </summary>
     [CreateAssetMenu(fileName = "GameOperation", menuName = "Scriptable Objects/GameOperation")]
     public class GameOperation : ScriptableObject
     {

@@ -4,6 +4,9 @@ using UnityEngine.UI;
 using UI;
 using UnityEngine.Events;
 
+/// <summary>
+/// Button UI that on press runs an operation, then on complete runs the operation.
+/// </summary>
 public class CreateRobotButton : MonoBehaviour
 {
     [SerializeField]

@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Time
 {
+    /// <summary>
+    /// Initializer Scriptable object for variable storage and initialization.
+    /// </summary>
     [CreateAssetMenu(fileName = "VariableLibrary", menuName = "Scriptable Objects/VariableLibrary")]
     public class VariableLibrary : ScriptableObject
     {
@@ -23,6 +26,9 @@ namespace Time
         }
     }
 
+    /// <summary>
+    /// Copy of the VariableLibrary object for read/write on local game instance.
+    /// </summary>
     public class PublicVariableLibrary
     {
 

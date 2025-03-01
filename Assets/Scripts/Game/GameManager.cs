@@ -1,6 +1,9 @@
 using Time;
 using UnityEngine;
 
+/// <summary>
+/// Overarching Game Manager script. Allows processing of variable changes.
+/// </summary>
 public class GameManager : MonoBehaviour
 {
 
@@ -60,6 +63,9 @@ public class GameManager : MonoBehaviour
                     break;
                 case ValOperation.Operation.Divide:
                     SetVariable(output, (float)GetVariable(output) / GetVariable(input));
+                    break;
+                case ValOperation.Operation.Set:
+                    SetVariable(output, GetVariable(output));
                     break;
 
             }

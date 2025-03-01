@@ -3,6 +3,9 @@ using System.Linq;
 using Time;
 using UnityEngine;
 
+/// <summary>
+/// [Deprecated] Handles variables storage and mapping.
+/// </summary>
 public class VariableManager : MonoBehaviour
 {
     private static VariableManager instance;
