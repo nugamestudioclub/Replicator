@@ -18,5 +18,5 @@ MonoBehaviour:
     inputVar: BotUpgradeIncrement
     outputVar: Bots
   - op: 1
-    inputVar: BotMatterCost
+    inputVar: Bots
     outputVar: Matter
