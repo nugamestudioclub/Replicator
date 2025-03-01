@@ -16,7 +16,7 @@ MonoBehaviour:
   operations:
   - op: 0
     inputVar: BotUpgradeIncrement
-    outputVar: Bot Increment Magnitude
+    outputVar: Bots
   - op: 1
     inputVar: BotMatterCost
     outputVar: Matter

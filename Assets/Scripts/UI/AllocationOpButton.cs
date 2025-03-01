@@ -8,6 +8,8 @@ public class AllocationOpButton : MonoBehaviour
     [SerializeField]
     private string unallocatedVariableName = "Unallocated";
     [SerializeField]
+    private string botGroupVariableName = "BotGroupSize";
+    [SerializeField]
     private GameOperation allocationOperation;
     private Button btn;
 
