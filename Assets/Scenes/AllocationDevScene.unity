@@ -2239,6 +2239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c08ff63a3b4ca4b93143b57b2ac91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  matterLayerIsTriggered: 0
+  botLayerIsTriggered: 0
+  matterLayerTriggerNum: 5
+  botLayerTriggerNum: 1
 --- !u!1 &889086132
 GameObject:
   m_ObjectHideFlags: 0
