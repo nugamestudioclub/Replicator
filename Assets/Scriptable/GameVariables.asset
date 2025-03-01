@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mappings:
   - variableName: Bots
-    initialValue: 3
-    editorDescription: the number of bots in the game
+    initialValue: 0
+    editorDescription: Number of Bots
   - variableName: Energy
     initialValue: 100
     editorDescription: the amount of energy we have
@@ -32,7 +32,7 @@ MonoBehaviour:
     initialValue: 1
     editorDescription: How many more bots per click on upgrade.s
   - variableName: Unallocated
-    initialValue: 3
+    initialValue: 0
     editorDescription: How many unallocated bots we have.
   - variableName: CollectionAllocation
     initialValue: 0

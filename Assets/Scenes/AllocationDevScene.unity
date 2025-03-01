@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: 
   variableCounter: ChargeAllocation
+  useSymbols: 1
 --- !u!114 &38868994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,6 +698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: '<b>Matter</b>: '
   variableCounter: Matter
+  useSymbols: 0
 --- !u!1 &301061123
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: 
   variableCounter: CollectionAllocation
+  useSymbols: 1
 --- !u!1 &417405406
 GameObject:
   m_ObjectHideFlags: 0
@@ -3875,6 +3878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: '<b>Energy</b>:'
   variableCounter: Energy
+  useSymbols: 0
 --- !u!1 &1646873167
 GameObject:
   m_ObjectHideFlags: 0
@@ -3927,6 +3931,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: 
   variableCounter: ConstructAllocation
+  useSymbols: 1
 --- !u!114 &1646873170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4177,6 +4182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefix: 'Unallocated: '
   variableCounter: Unallocated
+  useSymbols: 1
 --- !u!1 &1704941779
 GameObject:
   m_ObjectHideFlags: 0

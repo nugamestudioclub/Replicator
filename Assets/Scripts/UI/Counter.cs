@@ -1,3 +1,4 @@
+using Numbering;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,11 @@ public class Counter : MonoBehaviour
     [SerializeField]
     private string variableCounter = "Bots";
 
+    [SerializeField]
+    private bool useSymbols = false;
+
+    private SymbolNumber counter;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +29,7 @@ public class Counter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        displayText.text = prefix + GameManager.GetVariable(variableCounter);
+        counter = new SymbolNumber(GameManager.GetVariable(variableCounter));
+        displayText.text = prefix + counter.ToString();
     }
 }
