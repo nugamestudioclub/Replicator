@@ -56,3 +56,6 @@ MonoBehaviour:
     - variableName: ConstructAllocation
       initialValue: 0
       editorDescription: 
+    - variableName: BotGroupSize
+      initialValue: 1
+      editorDescription: 
