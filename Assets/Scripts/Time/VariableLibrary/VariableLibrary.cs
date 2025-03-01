@@ -4,22 +4,44 @@ using UnityEngine;
 namespace Time
 {
     /// <summary>
-    /// Initializer Scriptable object for variable storage and initialization.
+    /// Initializer Scriptable Object for variable storage and initialization.
     /// </summary>
     [CreateAssetMenu(fileName = "VariableLibrary", menuName = "Scriptable Objects/VariableLibrary")]
     public class VariableLibrary : ScriptableObject
     {
         [SerializeField]
-        private VarMapping[] mappings;
+        private VarGroup[] groups;
 
-        // Added method to expose the mappings for initialization
+        /// <summary>
+        /// Returns all variable mappings across all groups.
+        /// </summary>
         public VarMapping[] GetMappings()
         {
-            return mappings;
+            List<VarMapping> allMappings = new List<VarMapping>();
+            foreach (var group in groups)
+            {
+                if (group.variables != null)
+                {
+                    allMappings.AddRange(group.variables);
+                }
+            }
+            return allMappings.ToArray();
+        }
+
+        public VarGroup[] GetGroups()
+        {
+            return groups;
         }
 
         [System.Serializable]
-        public class VarMapping // Made public to be accessible from RuntimeVariableLibrary
+        public class VarGroup
+        {
+            public string groupName = "New Group";
+            public VarMapping[] variables;
+        }
+
+        [System.Serializable]
+        public class VarMapping
         {
             public string variableName;
             public float initialValue;
@@ -33,18 +55,17 @@ namespace Time
     /// </summary>
     public class PublicVariableLibrary
     {
-
         private Dictionary<string, float> mappings;
-        public Dictionary<string,float> Mappings { get { return mappings; } }   
+        public Dictionary<string, float> Mappings { get { return mappings; } }
+
         public PublicVariableLibrary(VariableLibrary library)
         {
             mappings = new Dictionary<string, float>();
-            foreach(var mapping in library.GetMappings())
+
+            foreach (var mapping in library.GetMappings())
             {
-                mappings[mapping.variableName] = mapping.initialValue + 0;
+                mappings[mapping.variableName] = mapping.initialValue;
             }
         }
-
-      
     }
 }

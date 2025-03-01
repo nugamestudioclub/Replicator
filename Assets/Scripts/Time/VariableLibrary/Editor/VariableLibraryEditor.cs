@@ -8,41 +8,88 @@ namespace Time
     [CustomEditor(typeof(VariableLibrary))]
     public class VariableLibraryEditor : Editor
     {
-        private ReorderableList reorderableList;
+        private SerializedProperty groupsProperty;
+        private List<ReorderableList> groupLists = new List<ReorderableList>();
+        private List<bool> groupFoldouts = new List<bool>();
 
         private void OnEnable()
         {
-            SerializedProperty mappingsProperty = serializedObject.FindProperty("mappings");
+            groupsProperty = serializedObject.FindProperty("groups");
+            InitializeGroupLists();
+        }
 
-            reorderableList = new ReorderableList(serializedObject, mappingsProperty, true, true, true, true)
+        private void InitializeGroupLists()
+        {
+            groupLists.Clear();
+            groupFoldouts.Clear();
+
+            for (int i = 0; i < groupsProperty.arraySize; i++)
             {
-                drawHeaderCallback = (Rect rect) => {
-                    EditorGUI.LabelField(rect, "Variable Mappings");
-                },
+                SerializedProperty groupProperty = groupsProperty.GetArrayElementAtIndex(i);
+                SerializedProperty variablesProperty = groupProperty.FindPropertyRelative("variables");
 
-                drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) => {
-                    SerializedProperty element = mappingsProperty.GetArrayElementAtIndex(index);
-                    SerializedProperty variableNameProp = element.FindPropertyRelative("variableName");
-                    SerializedProperty initialValueProp = element.FindPropertyRelative("initialValue");
+                groupFoldouts.Add(true);
 
-                    rect.y += 2;
-                    float halfWidth = rect.width / 2 - 10;
+                ReorderableList list = new ReorderableList(serializedObject, variablesProperty, true, true, true, true)
+                {
+                    drawHeaderCallback = (Rect rect) => {
+                        EditorGUI.LabelField(rect, "Variables");
+                    },
 
-                    EditorGUI.PropertyField(
-                        new Rect(rect.x, rect.y, halfWidth, EditorGUIUtility.singleLineHeight),
-                        variableNameProp, GUIContent.none);
+                    drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) => {
+                        SerializedProperty element = variablesProperty.GetArrayElementAtIndex(index);
+                        SerializedProperty variableNameProp = element.FindPropertyRelative("variableName");
+                        SerializedProperty initialValueProp = element.FindPropertyRelative("initialValue");
 
-                    EditorGUI.PropertyField(
-                        new Rect(rect.x + halfWidth + 10, rect.y, halfWidth, EditorGUIUtility.singleLineHeight),
-                        initialValueProp, GUIContent.none);
-                }
-            };
+                        rect.y += 2;
+                        float halfWidth = rect.width / 2 - 10;
+
+                        EditorGUI.PropertyField(
+                            new Rect(rect.x, rect.y, halfWidth, EditorGUIUtility.singleLineHeight),
+                            variableNameProp, GUIContent.none);
+
+                        EditorGUI.PropertyField(
+                            new Rect(rect.x + halfWidth + 10, rect.y, halfWidth, EditorGUIUtility.singleLineHeight),
+                            initialValueProp, GUIContent.none);
+                    }
+                };
+
+                groupLists.Add(list);
+            }
         }
 
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
-            reorderableList.DoLayoutList();
+
+            if (groupsProperty.arraySize == 0)
+            {
+                if (GUILayout.Button("Add Group"))
+                {
+                    AddNewGroup();
+                }
+            }
+
+            for (int i = 0; i < groupsProperty.arraySize; i++)
+            {
+                SerializedProperty groupProperty = groupsProperty.GetArrayElementAtIndex(i);
+                SerializedProperty groupNameProperty = groupProperty.FindPropertyRelative("groupName");
+
+                EditorGUILayout.BeginHorizontal();
+                groupFoldouts[i] = EditorGUILayout.Foldout(groupFoldouts[i], groupNameProperty.stringValue, true);
+                groupNameProperty.stringValue = EditorGUILayout.TextField(groupNameProperty.stringValue);
+                EditorGUILayout.EndHorizontal();
+
+                if (groupFoldouts[i])
+                {
+                    groupLists[i].DoLayoutList();
+                }
+            }
+
+            if (GUILayout.Button("Add Group"))
+            {
+                AddNewGroup();
+            }
 
             if (GUILayout.Button("Open Extended View"))
             {
@@ -51,6 +98,15 @@ namespace Time
 
             serializedObject.ApplyModifiedProperties();
         }
+
+        private void AddNewGroup()
+        {
+            int newIndex = groupsProperty.arraySize;
+            groupsProperty.InsertArrayElementAtIndex(newIndex);
+            groupsProperty.GetArrayElementAtIndex(newIndex).FindPropertyRelative("groupName").stringValue = "New Group";
+            serializedObject.ApplyModifiedProperties();
+            InitializeGroupLists();
+        }
     }
 
     public class ExtendedVariableLibraryWindow : EditorWindow
@@ -58,9 +114,10 @@ namespace Time
         private VariableLibrary library;
         private Vector2 scrollPosition;
         private SerializedObject serializedObject;
-        private SerializedProperty mappingsProperty;
-        private ReorderableList reorderableList;
-        private bool showDescriptions = false; // Toggle for descriptions
+        private SerializedProperty groupsProperty;
+        private List<ReorderableList> groupLists = new List<ReorderableList>();
+        private List<bool> groupFoldouts = new List<bool>();
+        private bool showDescriptions = false;
 
         public static void ShowWindow(VariableLibrary library)
         {
@@ -73,47 +130,53 @@ namespace Time
         private void Init()
         {
             serializedObject = new SerializedObject(library);
-            mappingsProperty = serializedObject.FindProperty("mappings");
+            groupsProperty = serializedObject.FindProperty("groups");
 
-            reorderableList = new ReorderableList(serializedObject, mappingsProperty, true, true, true, true)
+            groupLists.Clear();
+            groupFoldouts.Clear();
+
+            for (int i = 0; i < groupsProperty.arraySize; i++)
             {
-                drawHeaderCallback = (Rect rect) => {
-                    EditorGUI.LabelField(rect, "Extended Variable Mappings");
-                },
+                SerializedProperty groupProperty = groupsProperty.GetArrayElementAtIndex(i);
+                SerializedProperty variablesProperty = groupProperty.FindPropertyRelative("variables");
 
-                drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) => {
-                    SerializedProperty element = mappingsProperty.GetArrayElementAtIndex(index);
-                    SerializedProperty variableNameProp = element.FindPropertyRelative("variableName");
-                    SerializedProperty initialValueProp = element.FindPropertyRelative("initialValue");
-                    SerializedProperty editorDescriptionProp = element.FindPropertyRelative("editorDescription");
+                groupFoldouts.Add(true);
 
-                    rect.y += 2;
-                    float halfWidth = rect.width / 2 - 10;
+                ReorderableList list = new ReorderableList(serializedObject, variablesProperty, true, true, true, true)
+                {
+                    drawHeaderCallback = (Rect rect) => {
+                        EditorGUI.LabelField(rect, "Variables");
+                    },
 
-                    // Variable Name
-                    EditorGUI.PropertyField(
-                        new Rect(rect.x, rect.y, halfWidth, EditorGUIUtility.singleLineHeight),
-                        variableNameProp, GUIContent.none);
+                    drawElementCallback = (Rect rect, int index, bool isActive, bool isFocused) => {
+                        SerializedProperty element = variablesProperty.GetArrayElementAtIndex(index);
+                        SerializedProperty variableNameProp = element.FindPropertyRelative("variableName");
+                        SerializedProperty initialValueProp = element.FindPropertyRelative("initialValue");
+                        SerializedProperty editorDescriptionProp = element.FindPropertyRelative("editorDescription");
 
-                    // Initial Value
-                    EditorGUI.PropertyField(
-                        new Rect(rect.x + halfWidth + 10, rect.y, halfWidth, EditorGUIUtility.singleLineHeight),
-                        initialValueProp, GUIContent.none);
+                        rect.y += 2;
+                        float halfWidth = rect.width / 2 - 10;
 
-                    // Description Field (Only if showDescriptions is enabled)
-                    if (showDescriptions)
-                    {
-                        rect.y += EditorGUIUtility.singleLineHeight + 2;
                         EditorGUI.PropertyField(
-                            new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
-                            editorDescriptionProp, new GUIContent("Description"));
-                    }
-                },
+                            new Rect(rect.x, rect.y, halfWidth, EditorGUIUtility.singleLineHeight),
+                            variableNameProp, GUIContent.none);
 
-                elementHeightCallback = (int index) => {
-                    return showDescriptions ? EditorGUIUtility.singleLineHeight * 2 + 8 : EditorGUIUtility.singleLineHeight + 4;
-                }
-            };
+                        EditorGUI.PropertyField(
+                            new Rect(rect.x + halfWidth + 10, rect.y, halfWidth, EditorGUIUtility.singleLineHeight),
+                            initialValueProp, GUIContent.none);
+
+                        if (showDescriptions)
+                        {
+                            rect.y += EditorGUIUtility.singleLineHeight + 2;
+                            EditorGUI.PropertyField(
+                                new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
+                                editorDescriptionProp, new GUIContent("Description"));
+                        }
+                    }
+                };
+
+                groupLists.Add(list);
+            }
         }
 
         private void OnGUI()
@@ -121,10 +184,13 @@ namespace Time
             serializedObject.Update();
             scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
 
-            // Toggle button for showing descriptions
             showDescriptions = EditorGUILayout.Toggle("Show Descriptions", showDescriptions);
 
-            reorderableList.DoLayoutList();
+            for (int i = 0; i < groupsProperty.arraySize; i++)
+            {
+                groupLists[i].DoLayoutList();
+            }
+
             EditorGUILayout.EndScrollView();
 
             if (GUILayout.Button("Save Changes"))
