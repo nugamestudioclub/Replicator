@@ -15,8 +15,32 @@ MonoBehaviour:
   library: {fileID: 11400000, guid: 71ab7708cb8a96d4cb8a1d39d53d407e, type: 2}
   operations:
   - op: 0
-    inputVar: BotGroupSize
+    inputVar: One
     outputVar: ConstructAllocation
   - op: 1
-    inputVar: BotGroupSize
+    inputVar: One
     outputVar: Unallocated
+  - op: 4
+    inputVar: Zero
+    outputVar: r1
+  - op: 0
+    inputVar: Asymptote
+    outputVar: r1
+  - op: 2
+    inputVar: ConstructAllocation
+    outputVar: r1
+  - op: 4
+    inputVar: Zero
+    outputVar: r2
+  - op: 0
+    inputVar: ConstructAllocation
+    outputVar: r2
+  - op: 0
+    inputVar: DiminishedReturnThreshold
+    outputVar: r2
+  - op: 3
+    inputVar: r2
+    outputVar: r1
+  - op: 4
+    inputVar: ConstructionTimeCostMod
+    outputVar: r1

@@ -3527,7 +3527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: _RobCreate0
   cooldownButton: {fileID: 1395180321}
-  duration: 5
+  durationVariable: ConstructionTimeCostMod
   _onComplete:
     m_PersistentCalls:
       m_Calls: []
