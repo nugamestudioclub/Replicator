@@ -22,7 +22,7 @@ MonoBehaviour:
       initialValue: 0
       editorDescription: 
     - variableName: Energy
-      initialValue: 0
+      initialValue: 10
       editorDescription: 
   - groupName: Costs
     variables:
