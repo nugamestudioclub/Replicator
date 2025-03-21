@@ -17,8 +17,7 @@ public class CreateRobotButton : MonoBehaviour
     private CooldownButtonComponent cooldownButton;
 
     [SerializeField]
-    [Tooltip("In Seconds")]
-    private float duration = 25f;
+    private string durationVariable = "BotBuildDuration";
     private Time.Time _dur;
     private Operation op;
     [SerializeField]
@@ -33,7 +32,7 @@ public class CreateRobotButton : MonoBehaviour
     void Start()
     {
         btn = cooldownButton.GetComponent<Button>();    
-        _dur = new Time.Time(duration);
+        _dur = new Time.Time(GameManager.GetVariable(durationVariable));
         btn.onClick.AddListener(SubmitOperation);
     }
 

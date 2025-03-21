@@ -22,7 +22,7 @@ MonoBehaviour:
       initialValue: 0
       editorDescription: 
     - variableName: Energy
-      initialValue: 0
+      initialValue: 10
       editorDescription: 
   - groupName: Costs
     variables:
@@ -33,6 +33,9 @@ MonoBehaviour:
     variables:
     - variableName: One
       initialValue: 1
+      editorDescription: 
+    - variableName: Zero
+      initialValue: 0
       editorDescription: 
   - groupName: Increments
     variables:
@@ -70,5 +73,25 @@ MonoBehaviour:
     - variableName: MatterPerTick
       initialValue: 0
       editorDescription: 
-  - groupName: New Group
-    variables: []
+  - groupName: Durations
+    variables:
+    - variableName: BotBuildDuration
+      initialValue: 5
+      editorDescription: 
+    - variableName: ConstructionTimeCostMod
+      initialValue: 1
+      editorDescription: 
+  - groupName: Construction Modifiers
+    variables:
+    - variableName: Asymptote
+      initialValue: 0.1
+      editorDescription: 
+    - variableName: DiminishedReturnThreshold
+      initialValue: 50
+      editorDescription: 
+    - variableName: r1
+      initialValue: 0
+      editorDescription: 
+    - variableName: r2
+      initialValue: 0
+      editorDescription: 
