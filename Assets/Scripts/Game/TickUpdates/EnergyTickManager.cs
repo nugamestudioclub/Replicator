@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using Time;
 using UnityEngine;
 
@@ -9,6 +10,14 @@ public class EnergyTickManager : MonoBehaviour
     private string tickRateVariable = "EnergyPerTick";
     [SerializeField]
     private string energyVariable = "Energy";
+
+    [SerializeField]
+    private string botsVar = "Bots";
+    [SerializeField]
+    private string unallocatedVar = "Unallocated";
+    [SerializeField]
+    private string energyPerTickModVar = "EnergyPerTickMod";
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +34,12 @@ public class EnergyTickManager : MonoBehaviour
         tickRate *= tickCount;
 
         GameManager.SetVariable(energyVariable, GameManager.GetVariable(energyVariable)+tickRate);
+
+        float bots = GameManager.GetVariable(botsVar);
+        float unallocatedBots = GameManager.GetVariable(unallocatedVar);
+        float energyPerTickMod = GameManager.GetVariable(energyPerTickModVar);
+        float energyPerTick = energyPerTickMod - (bots - unallocatedBots);
+        GameManager.SetVariable(tickRateVariable, energyPerTick);
 
     }
 }
