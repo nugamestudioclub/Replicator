@@ -16,7 +16,7 @@ public class DateRenderer : MonoBehaviour
     {
         float date = TimeManager.Current.GetNumberRaw();
         date = (Mathf.Round(date));
-        text.text = date+" seconds";
+        text.text = date+" SECONDS";
     }
 
 
