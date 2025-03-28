@@ -37,11 +37,14 @@ MonoBehaviour:
       editorDescription: 
   - groupName: Numbers
     variables:
+    - variableName: Zero
+      initialValue: 0
+      editorDescription: 
     - variableName: One
       initialValue: 1
       editorDescription: 
-    - variableName: Zero
-      initialValue: 0
+    - variableName: Two
+      initialValue: 2
       editorDescription: 
   - groupName: Increments
     variables:
@@ -49,6 +52,15 @@ MonoBehaviour:
       initialValue: 1
       editorDescription: 
     - variableName: BotUpgradeIncrement
+      initialValue: 1
+      editorDescription: 
+    - variableName: BotEnergyProduction
+      initialValue: 2
+      editorDescription: 
+    - variableName: BotEnergyUpkeep
+      initialValue: 1
+      editorDescription: 
+    - variableName: BotMatterProduction
       initialValue: 1
       editorDescription: 
   - groupName: Allocation
@@ -94,10 +106,4 @@ MonoBehaviour:
       editorDescription: 
     - variableName: DiminishedReturnThreshold
       initialValue: 50
-      editorDescription: 
-    - variableName: r1
-      initialValue: 0
-      editorDescription: 
-    - variableName: r2
-      initialValue: 0
       editorDescription: 
