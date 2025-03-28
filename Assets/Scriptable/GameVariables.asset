@@ -29,6 +29,12 @@ MonoBehaviour:
     - variableName: BotMatterCost
       initialValue: 1
       editorDescription: 
+    - variableName: BotEnergyCost
+      initialValue: 1
+      editorDescription: 
+    - variableName: BotTimeCost
+      initialValue: 1
+      editorDescription: 
   - groupName: Numbers
     variables:
     - variableName: Zero
