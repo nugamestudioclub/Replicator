@@ -15,8 +15,8 @@ MonoBehaviour:
   library: {fileID: 11400000, guid: 71ab7708cb8a96d4cb8a1d39d53d407e, type: 2}
   operations:
   - op: 0
-    inputVar: BotGroupSize
+    inputVar: One
     outputVar: ConstructAllocation
   - op: 1
-    inputVar: BotGroupSize
+    inputVar: One
     outputVar: Unallocated
