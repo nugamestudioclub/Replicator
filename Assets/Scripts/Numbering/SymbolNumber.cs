@@ -5,95 +5,86 @@ namespace Numbering
 {
     public class SymbolNumber
     {
-        private double value;
-        private string symbol;
+        private double _value;
+        private string _symbol;
 
-        private static readonly string[] symbols = { "", "k", "M", "B", "T", "P", "E" };
+        private static readonly string[] Symbols = { "", "k", "M", "B", "T", "P", "E" };
+
+        public double Value
+        {
+            get => _value;
+            set => SetAndFormatValue(value);
+        }
+
+        public string Symbol => _symbol;
 
         public SymbolNumber(double value)
         {
-            this.value = value;
+            SetAndFormatValue(value);
+        }
+
+        private void SetAndFormatValue(double newValue)
+        {
+            _value = newValue;
             UpdateSymbol();
         }
 
         private void UpdateSymbol()
         {
-            if (value == 0)
+            if (_value == 0)
             {
-                // Handle the special case where the value is 0.
-                symbol = symbols[0];
+                _symbol = Symbols[0];
                 return;
             }
 
-            // Determine the exponent in groups of 3
-            int exponent = (int)Math.Floor(Math.Log10(Math.Abs(value)) / 3) * 3;
-
-            // Calculate symbol index
+            int exponent = (int)Math.Floor(Math.Log10(Math.Abs(_value)) / 3) * 3;
             int symbolIndex = exponent / 3;
 
-            // Ensure the symbol index is within bounds
             if (symbolIndex < 0)
             {
                 symbolIndex = 0;
             }
-            else if (symbolIndex >= symbols.Length)
+            else if (symbolIndex >= Symbols.Length)
             {
-                symbolIndex = symbols.Length - 1;
+                symbolIndex = Symbols.Length - 1;
             }
 
-            // Set the symbol
-            symbol = symbols[symbolIndex];
-
-            // Adjust the value to be in the appropriate range
-            value /= Math.Pow(10, symbolIndex * 3);
+            _symbol = Symbols[symbolIndex];
+            _value /= Math.Pow(10, symbolIndex * 3);
         }
-
 
         public override string ToString()
         {
-            int digits = Mathf.CeilToInt((float)value / 10f);
-            if (value == 0)
+            if (_value == 0)
             {
-                return "0" + symbol; // Special case for zero
+                return "0" + Symbol;
             }
 
-            // Determine the scale factor needed to isolate the most significant digits
-            double scale = Math.Pow(10, Math.Floor(Math.Log10(Math.Abs(value))) - digits + 1);
-
-            // Round the value to the nearest integer at this scale
-            double roundedValue = Math.Round(value / scale) * scale;
-
-            // Format the rounded value with no fractional part
-            return $"{roundedValue:F0}{symbol}";
+            return $"{_value:F0}{Symbol}";
         }
 
-
+        // Arithmetic operators updated to use the property Value
         public static SymbolNumber operator +(SymbolNumber a, SymbolNumber b)
         {
-            return new SymbolNumber(a.value * Math.Pow(10, a.GetExponent()) + b.value * Math.Pow(10, b.GetExponent()));
+            return new SymbolNumber(a.Value + b.Value);
         }
 
         public static SymbolNumber operator -(SymbolNumber a, SymbolNumber b)
         {
-            return new SymbolNumber(a.value * Math.Pow(10, a.GetExponent()) - b.value * Math.Pow(10, b.GetExponent()));
+            return new SymbolNumber(a.Value - b.Value);
         }
 
         public static SymbolNumber operator *(SymbolNumber a, SymbolNumber b)
         {
-            return new SymbolNumber(a.value * b.value * Math.Pow(10, a.GetExponent() + b.GetExponent()));
+            return new SymbolNumber(a.Value * b.Value);
         }
 
         public static SymbolNumber operator /(SymbolNumber a, SymbolNumber b)
         {
-            if (b.value == 0)
+            if (b.Value == 0)
                 throw new DivideByZeroException("Cannot divide by zero.");
-            return new SymbolNumber((a.value * Math.Pow(10, a.GetExponent())) / (b.value * Math.Pow(10, b.GetExponent())));
-        }
 
-        private int GetExponent()
-        {
-            // Calculate exponent to determine the actual value
-            return (int)Math.Floor(Math.Log10(Math.Abs(value)) / 3) * 3;
+            return new SymbolNumber(a.Value / b.Value);
         }
     }
 }
