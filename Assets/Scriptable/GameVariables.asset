@@ -31,11 +31,11 @@ MonoBehaviour:
       editorDescription: 
   - groupName: Numbers
     variables:
-    - variableName: One
-      initialValue: 1
-      editorDescription: 
     - variableName: Zero
       initialValue: 0
+      editorDescription: 
+    - variableName: One
+      initialValue: 1
       editorDescription: 
     - variableName: Two
       initialValue: 2
@@ -48,8 +48,14 @@ MonoBehaviour:
     - variableName: BotUpgradeIncrement
       initialValue: 1
       editorDescription: 
-    - variableName: EnergyPerTickMod
-      initialValue: 0
+    - variableName: BotEnergyProduction
+      initialValue: 2
+      editorDescription: 
+    - variableName: BotEnergyUpkeep
+      initialValue: 1
+      editorDescription: 
+    - variableName: BotMatterProduction
+      initialValue: 1
       editorDescription: 
   - groupName: Allocation
     variables:

@@ -16,7 +16,15 @@ public class EnergyTickManager : MonoBehaviour
     [SerializeField]
     private string unallocatedVar = "Unallocated";
     [SerializeField]
+    private string energyAllocatedVar = "ChargeAllocation";
+    [SerializeField]
     private string energyPerTickModVar = "EnergyPerTickMod";
+
+    [SerializeField]
+    private string botEnergyProdution = "BotEnergyProduction";
+
+    [SerializeField]
+    private string botEnergyUpkeep = "BotEnergyUpkeep";
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,18 +36,23 @@ public class EnergyTickManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tickRate = GameManager.GetVariable(tickRateVariable)+0;
+        // Energy Per Tick Calculation
+        float bots = GameManager.GetVariable(botsVar);
+        float unallocatedBots = GameManager.GetVariable(unallocatedVar);
+        float energyAllocatedBots = GameManager.GetVariable(energyAllocatedVar);
+        float botUpkeep = GameManager.GetVariable(botEnergyUpkeep);
+        float botProduction = GameManager.GetVariable(botEnergyProdution);
+
+        float energyPerTick = -((bots - unallocatedBots)*botUpkeep) + (energyAllocatedBots*botProduction);
+        GameManager.SetVariable(tickRateVariable, energyPerTick);
+
+        // Energy Calculation
+        tickRate = GameManager.GetVariable(tickRateVariable) + 0;
 
         float tickCount = Time.Time.DeltaTime.GetNumberRaw();
         tickRate *= tickCount;
 
-        GameManager.SetVariable(energyVariable, GameManager.GetVariable(energyVariable)+tickRate);
-
-        float bots = GameManager.GetVariable(botsVar);
-        float unallocatedBots = GameManager.GetVariable(unallocatedVar);
-        float energyPerTickMod = GameManager.GetVariable(energyPerTickModVar);
-        float energyPerTick = energyPerTickMod - (bots - unallocatedBots);
-        GameManager.SetVariable(tickRateVariable, energyPerTick);
+        GameManager.SetVariable(energyVariable, Mathf.Max(0,GameManager.GetVariable(energyVariable) + tickRate));
 
     }
 }

@@ -4297,6 +4297,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickRateVariable: EnergyPerTick
   energyVariable: Energy
+  botsVar: Bots
+  unallocatedVar: Unallocated
+  energyAllocatedVar: ChargeAllocation
+  energyPerTickModVar: EnergyPerTickMod
+  botEnergyProdution: BotEnergyProduction
+  botEnergyUpkeep: BotEnergyUpkeep
 --- !u!114 &1704941785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4311,6 +4317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickRateVariable: MatterPerTick
   matterVariable: Matter
+  matterProduction: BotMatterProduction
+  collectionAllocationVar: CollectionAllocation
 --- !u!114 &1704941786
 MonoBehaviour:
   m_ObjectHideFlags: 0
