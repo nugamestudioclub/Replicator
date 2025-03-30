@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{4cd52952-fbae-4c6d-b369-a22e49faa368}">
+		<property name="name">
+			<value>atmcGet</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7f591b2b-6e97-4189-9fab-14217ae13ab1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{4fabf1e6-a458-475b-8eed-b5b5421e73c3}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{4fabf1e6-a458-475b-8eed-b5b5421e73c3}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.14000000059604645</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

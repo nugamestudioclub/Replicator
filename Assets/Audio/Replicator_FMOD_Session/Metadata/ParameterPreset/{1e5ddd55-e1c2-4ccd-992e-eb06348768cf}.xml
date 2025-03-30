@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{1e5ddd55-e1c2-4ccd-992e-eb06348768cf}">
+		<property name="name">
+			<value>tutorialStart</value>
+		</property>
+		<relationship name="folder">
+			<destination>{7f591b2b-6e97-4189-9fab-14217ae13ab1}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{8320d8de-3cc7-4d52-8d96-4d946f70d432}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{8320d8de-3cc7-4d52-8d96-4d946f70d432}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="velocity">
+			<value>0.099999994039535522</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

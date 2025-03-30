@@ -2242,7 +2242,7 @@ MonoBehaviour:
   matterLayerIsTriggered: 0
   botLayerIsTriggered: 0
   matterLayerTriggerNum: 5
-  botLayerTriggerNum: 1
+  botLayerTriggerNum: 5
 --- !u!1 &889086132
 GameObject:
   m_ObjectHideFlags: 0

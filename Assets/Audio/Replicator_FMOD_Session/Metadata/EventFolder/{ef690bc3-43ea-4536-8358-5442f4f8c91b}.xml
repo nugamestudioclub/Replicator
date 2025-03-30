@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{ef690bc3-43ea-4536-8358-5442f4f8c91b}">
+		<property name="name">
+			<value>synthLeadRandomization</value>
+		</property>
+		<relationship name="folder">
+			<destination>{9ad9fe3a-00f6-49be-8c0f-d0c03390fd11}</destination>
+		</relationship>
+	</object>
+</objects>
