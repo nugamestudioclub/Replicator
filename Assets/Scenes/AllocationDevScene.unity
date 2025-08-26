@@ -348,6 +348,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1156446639438935357, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: prefix
+      value: 'MATTER: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1156446639438935357, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: useSymbols
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993207997796328867, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: prefix
+      value: 'Matter/Tick: '
+      objectReference: {fileID: 0}
     - target: {fileID: 2270787004322179198, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -431,6 +443,58 @@ PrefabInstance:
     - target: {fileID: 2619369465639475360, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702736178481966837, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702736178481966837, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127381170264587477, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3127381170264587477, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671685431634555966, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: prefix
+      value: 'Energy: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671685431634555966, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: useSymbols
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391922839464067225, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391922839464067225, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5462350290435518045, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727998796871782359, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730963151194158278, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_fontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730963151194158278, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280550725257417242, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: prefix
+      value: 'Energy/Tick: '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
