@@ -28,6 +28,10 @@ public class CreateRobotButton : MonoBehaviour
     private string matterCostVariable;
     [SerializeField]
     private string matterVariable;
+    [SerializeField]
+    private string energyCostVariable;
+    [SerializeField]
+    private string energyVariable;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -53,7 +57,8 @@ public class CreateRobotButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cooldownButton.Interactable = op is null && GameManager.GetVariable(matterCostVariable) <= GameManager.GetVariable(matterVariable);
+        cooldownButton.Interactable = op is null && GameManager.GetVariable(matterCostVariable) <= GameManager.GetVariable(matterVariable)
+                                                 && GameManager.GetVariable(energyCostVariable) <= GameManager.GetVariable(energyVariable);
         if (op != null)
         {
             cooldownButton.coverPercent = 1 - op.GetProgress(Time.TimeManager.Current);

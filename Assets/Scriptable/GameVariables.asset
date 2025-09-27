@@ -24,16 +24,28 @@ MonoBehaviour:
     - variableName: Energy
       initialValue: 10
       editorDescription: 
+    - variableName: SteamEngines
+      initialValue: 0
+      editorDescription: 
   - groupName: Costs
     variables:
     - variableName: BotMatterCost
-      initialValue: 1
+      initialValue: 50
       editorDescription: 
     - variableName: BotEnergyCost
-      initialValue: 1
+      initialValue: 10
       editorDescription: 
     - variableName: BotTimeCost
-      initialValue: 1
+      initialValue: 5
+      editorDescription: 
+    - variableName: EngineMatterCost
+      initialValue: 500
+      editorDescription: 
+    - variableName: EngineEnergyCost
+      initialValue: 10
+      editorDescription: 
+    - variableName: EngineTimeCost
+      initialValue: 10
       editorDescription: 
   - groupName: Numbers
     variables:
@@ -61,6 +73,9 @@ MonoBehaviour:
       initialValue: 1
       editorDescription: 
     - variableName: BotMatterProduction
+      initialValue: 1
+      editorDescription: 
+    - variableName: EngineIncrementMagnitude
       initialValue: 1
       editorDescription: 
   - groupName: Allocation

@@ -10,7 +10,11 @@ public class AllocationOpButton : MonoBehaviour
     [SerializeField]
     private string botGroupVariableName = "BotGroupSize";
     [SerializeField]
+    private string steamEngineVariableName = "SteamEngines";
+    [SerializeField]
     private GameOperation allocationOperation;
+    [SerializeField]
+    private bool needsEngine;
     private Button btn;
 
     [SerializeField]
@@ -23,6 +27,12 @@ public class AllocationOpButton : MonoBehaviour
     }
     private void Invoke()
     {
+        // If you have no steam engines, you cannot allocate bots to generation
+        if (needsEngine && GameManager.GetVariable(steamEngineVariableName) == 0)
+        {
+            return;
+        }
+        
         // Check that output is not 0 for decrement
         
         // If you are allocating then check that unallocation is > 0
@@ -44,6 +54,9 @@ public class AllocationOpButton : MonoBehaviour
     void Update()
     {
         btn.interactable = isAllocating && GameManager.GetVariable(unallocatedVariableName) > 0 || !isAllocating && GameManager.GetVariable(allocationOperation.Operations[0].outputVar) > 0;
-
+        if (needsEngine && GameManager.GetVariable(steamEngineVariableName) == 0)
+        {
+            btn.interactable = false;
+        }
     }
 }

@@ -360,6 +360,18 @@ PrefabInstance:
       propertyPath: prefix
       value: 'Matter/Tick: '
       objectReference: {fileID: 0}
+    - target: {fileID: 2076660420652496262, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: operation
+      value: 
+      objectReference: {fileID: 11400000, guid: 1c6889cc592cf546c821fa83a1441aed, type: 2}
+    - target: {fileID: 2076660420652496262, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: energyVariable
+      value: Energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2076660420652496262, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: energyCostVariable
+      value: EngineEnergyCost
+      objectReference: {fileID: 0}
     - target: {fileID: 2270787004322179198, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -444,6 +456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2635780209621455850, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: needsEngine
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2702736178481966837, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
       propertyPath: m_SizeDelta.y
       value: 50
@@ -468,6 +484,10 @@ PrefabInstance:
       propertyPath: useSymbols
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4198983671070265445, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: variableCounter
+      value: SteamEngines
+      objectReference: {fileID: 0}
     - target: {fileID: 5391922839464067225, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
       propertyPath: m_fontSize
       value: 40
@@ -484,6 +504,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 6421315271116686868, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: energyVariable
+      value: Energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421315271116686868, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: energyCostVariable
+      value: BotEnergyCost
+      objectReference: {fileID: 0}
     - target: {fileID: 6730963151194158278, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
       propertyPath: m_fontSize
       value: 40
@@ -495,6 +523,14 @@ PrefabInstance:
     - target: {fileID: 7280550725257417242, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
       propertyPath: prefix
       value: 'Energy/Tick: '
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597228869731755022, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: needsEngine
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657935231679718963, guid: 46c62e96694d6884a94a76c059c74bca, type: 3}
+      propertyPath: needsEngine
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

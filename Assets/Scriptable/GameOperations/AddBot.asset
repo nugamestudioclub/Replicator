@@ -20,6 +20,9 @@ MonoBehaviour:
   - op: 1
     inputVar: BotMatterCost
     outputVar: Matter
+  - op: 1
+    inputVar: BotEnergyCost
+    outputVar: Energy
   - op: 0
     inputVar: BotIncrementMagnitude
     outputVar: Unallocated
